@@ -44,3 +44,126 @@ Country:
 • Syntax: <tag (eventname)=”functioname( )”> </tag>
 • It is used to pass event notifications from template to component. -->
 <input type="button" value="changeData" (click)="ChangedDataValues()" />
+<hr />
+<hr />
+<!-- (*)Dynaic Style APPLYING
+• It is used to set the CSS property value dynamically at run time.
+• When the value of component property is changed, the value of css property will be 
+automatically gets changed.
+Syntax:
+<tag [style.cssproperty]=”component property”>
+</tag> -->
+<h1>dynamic style Examples starting</h1>
+<div>
+  <div [style.color]="mycolor">{{ marks }}</div>
+</div>
+
+<h1>dynamic style Example Ended</h1>
+
+<!-- ngClass
+• It is used to set the css class name dynamically at run time.
+• When the value of component property is changed, the css class will be automatically 
+changed.
+• Use this directive to set styles with multiple properties, conditionally at runtime.
+Syntax:
+<tag [ngClass]=”component property”></tag> -->
+
+<h1>ngclass usage example</h1>
+<div>
+  <div [ngClass]="myclass">{{ marks }}</div>
+</div>
+
+<!-- ngIf
+• The “ngIf” displays the element if the condition is “true”; otherwise the element will be 
+deleted from DOM.
+Syntax:
+<tag *ngIf='condition'>
+</tag>
+• The “ngIf” must be prefixed with “*”, to mark that it accepts “micro syntax”, which is not 
+just an “expression”, it accepts its own syntax.
+• Use “ngIf” if you want to display some content based on the condition. The content appers 
+when the condition is true, it disappears when the condition is false -->
+
+<h1>ngif example</h1>
+<div *ngIf="b" style="background-color: chartreuse">Congratlations</div>
+<div *ngIf="!b" style="background-color: red">Better Luck Next Time</div>
+
+<!-- ngIf and else
+• The “ngIf and else” displays one element if it is “true”; otherwise it displays another 
+element.
+Syntax:
+<tag *ngIf=”condition; then template1; else template2”>
+</tag>
+<ng-template #template1>
+…
+</ng-template>
+<ng-template #template2>
+…
+</ng-template>
+• The “ng-template” is a container, inside which you can place any no. of tags.
+• Use “ngIf and else”, if you want to display one content for the “true” case, another content 
+fir the “false” case -->
+
+<div>
+  <h4>NgIf and else</h4>
+  <div *ngIf="b; then template1; else template2"></div>
+  <ng-template #template1>
+    <div style="background-color: green">Congratulations</div>
+    <h1>success is boostup for our carrier</h1>
+  </ng-template>
+
+  <ng-template #template2>
+    <div style="background-color: red">TryNexTime</div>
+    <h1>you can try next time untill you will success</h1>
+  </ng-template>
+</div>
+
+<!-- ngSwitch
+• The “ngSwitch” checks the value of a variable, whether it matches with any one of the 
+“cases” and displays the element when it matches with anyone.
+• Use “ngSwitch” if you want to display some content for every possible value in a variable.
+Syntax:
+<tag [ngSwitch] =”property”>
+<tag *ngSwitchCase=” ‘value‘ ”></tag>
+<tag *ngSwitchCase=” ‘value‘ ”></tag>
+<tag *ngSwitchCase=” ‘value‘ ”></tag>
+…
+<tag *ngSwitchDefault></tag>
+</tag> -->
+<div>
+  <h4>NGSwitch Example</h4>
+  <!-- Dropdownlist binding code -->
+  <select [(ngModel)]="CountryName">
+    <option></option>
+    <option>India</option>
+    <option>UK</option>
+    <option>US</option>
+  </select>
+  <div [ngSwitch]="CountryName">
+    <p *ngSwitchCase="'India'">India Details Here</p>
+    <p *ngSwitchCase="'UK'">UK Details Here</p>
+    <p *ngSwitchCase="'US'">US Details Here</p>
+    <p *ngSwitchDefault>Please select any country</p>
+  </div>
+</div>
+
+<!-- ngFor
+• It is used to repeat the tag once for each element in the array. It generates (repeats) the 
+give content once for one element of the array. For example, you are reading friends names 
+from an array and displaying the same as a bulleted list.
+• We have to prefix “*” before ”ngFor”, as it is the micro syntax. The “micro syntax” means, 
+it’s not just a value; we can write some complex code in it.
+arrayname = [ value1, value2, … ];
+• Ex: Displaying proucts list in the online shopping website.
+• Use “ngFor” to display list of records. Ex: List of banks, list of salesman and their sales etc.
+Syntax:
+<tag *ngFor=”let variable of arrayname”>{{variable}}
+</tag> -->
+
+<h1>string array example</h1>
+
+<div>
+  <ul>
+    <li *ngFor="let variable of Cities">{{variable}}</li>
+  </ul>
+</div>
