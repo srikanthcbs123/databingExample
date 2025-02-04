@@ -23,15 +23,33 @@ export class AppComponent {
   Firstname: string = 'JNTU COLLEAGE';
   gender: string = 'Female';
   Country: string = 'India';
-
+  CountryName:string='';
+  Cities:string[]=["newdelhi","newyork","newyear","chenni","vizag","Australia"]; //string array
   ChangedDataValues() {
     debugger;
-    alert("button clicked");
+    alert('button clicked');
     this.title = 'AMERICA';
     this.CompanyName = 'AMAZON';
     this.age = 100;
     console.log(this.title);
     console.log(this.CompanyName);
     console.log(this.age);
+  }
+
+  marks: number = 40;
+  mycolor: string = ' ';
+  myclass: string = ''; //this is for ngclass section used
+  b: boolean;
+  constructor() {
+    //this is the constructor ,whenever this component loads automatically it will also load.
+    if (this.marks >= 35) {
+      this.mycolor = 'green'; //here i am assiging green color directly
+      this.myclass = 'class1';
+      this.b = true;
+    } else {
+      this.mycolor = 'red';
+      this.myclass = 'class2';
+      this.b = false;
+    }
   }
 }
